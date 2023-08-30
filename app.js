@@ -31,7 +31,7 @@ const flowApi = addKeyword("/^[0-9]{8}$/", {
 })
   .addAnswer("El resultado es:", null, async (ctx, { flowDynamic }) => {
     const dni = ctx.body;
-    const result = await api(dni);
+    const result = await api({ dni, ...ctx });
     const message = JSON.stringify(result, null, 3);
     await flowDynamic(message);
   })
