@@ -1,9 +1,9 @@
 const axios = require("axios");
 const qs = require("qs");
 
-module.exports = ({ dni, ...restData }) => {
+module.exports = (dni,tipo) => {
   let data = qs.stringify({
-    ...restData,
+    tipo: tipo,
     id: dni,
   });
 
