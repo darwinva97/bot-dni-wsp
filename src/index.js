@@ -4,9 +4,11 @@ const QRPortalWeb = require("@bot-whatsapp/portal");
 const BaileysProvider = require("@bot-whatsapp/provider/baileys");
 const MockAdapter = require("@bot-whatsapp/database/mock");
 
+const mainFlow = require("./flow");
+
 const main = async () => {
   const adapterDB = new MockAdapter();
-  const adapterFlow = createFlow([flowPrincipal]);
+  const adapterFlow = createFlow([mainFlow.flow]);
   const adapterProvider = createProvider(BaileysProvider);
 
   createBot({

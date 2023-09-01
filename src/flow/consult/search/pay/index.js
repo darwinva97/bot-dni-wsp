@@ -1,14 +1,13 @@
 const { addKeyword } = require("@bot-whatsapp/bot");
-const api = require("../../../../api")
-
-// const output = "Ingrese 1 para realizar el pago";
+const api = require("../../../../api");
+const state = require("../../../../state");
 
 const payFlow = addKeyword(["1"])
   .addAnswer("Procesando solicitud:", null, async (ctx, { flowDynamic }) => {
-    const result = await api.startPay();
+    const dni = state.get(ctx.from);
+    const result = await api.startPay(dni);
     const message = JSON.stringify(result, null, 3);
     await flowDynamic(message);
   })
-  // .addAnswer(output, { delay: 1000 }, null, []);
 
-module.exports = { flow: payFlow, menu: payMenu };
+module.exports = { flow: payFlow };

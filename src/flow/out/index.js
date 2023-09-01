@@ -1,9 +1,9 @@
 const { addKeyword } = require("@bot-whatsapp/bot");
-const main = require("..");
+const config = require("../../config");
 
 const entry = ["0"];
 const outMenu = [
-  `Hasta luego! Recuerda que puedes volver escribiendo (${main.entry[0]})`,
+  `Hasta luego! Recuerda que puedes volver escribiendo (${config.startCommands[0]})`,
 ];
 const outFlow = addKeyword(entry).addAnswer(outMenu, null, null);
 

@@ -1,6 +1,7 @@
 /node_modules
 /bot_sessions
 /bot.qr.png
+/tmp/*
 pnpm-lock.yaml
 baileys.log
 core.class.log
